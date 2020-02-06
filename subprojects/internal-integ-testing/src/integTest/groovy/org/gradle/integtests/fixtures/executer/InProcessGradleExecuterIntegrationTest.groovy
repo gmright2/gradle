@@ -21,9 +21,11 @@ import org.gradle.integtests.fixtures.ToBeFixedForInstantExecution
 import org.gradle.test.fixtures.file.TestNameTestDirectoryProvider
 import org.gradle.util.RedirectStdOutAndErr
 import org.junit.Rule
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.Unroll
 
+@IgnoreIf({ GradleContextualExecuter.vfsRetention })
 class InProcessGradleExecuterIntegrationTest extends Specification {
     @Rule
     RedirectStdOutAndErr outputs = new RedirectStdOutAndErr()
