@@ -17,8 +17,11 @@
 package org.gradle.api
 
 import org.gradle.integtests.fixtures.AbstractIntegrationSpec
+import org.gradle.integtests.fixtures.executer.GradleContextualExecuter
+import spock.lang.IgnoreIf
 import spock.lang.Unroll
 
+@IgnoreIf({ GradleContextualExecuter.vfsRetention })
 abstract class AbstractDomainObjectContainerIntegrationTest extends AbstractIntegrationSpec {
     abstract String makeContainer()
     abstract String getContainerStringRepresentation()
