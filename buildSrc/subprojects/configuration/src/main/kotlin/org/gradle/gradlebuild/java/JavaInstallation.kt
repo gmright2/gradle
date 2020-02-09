@@ -27,8 +27,3 @@ class JavaInstallation(
     val vendorAndMajorVersion: String
     get() = "${javaInstallation.implementationName} ${javaInstallation.javaVersion}"
 }
-
-
-
-
-
