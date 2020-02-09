@@ -115,7 +115,6 @@ class UnitTestAndCompilePlugin : Plugin<Project> {
     fun Project.configureCompile() {
         afterEvaluate {
             val jdkForCompilation = rootProject.buildJvms.compileJvm.get()
-            println("-> USING ${jdkForCompilation.vendorAndMajorVersion} FOR COMPILATION")
 
             tasks.withType<JavaCompile>().configureEach {
                 configureCompileTask(this, options, jdkForCompilation)
@@ -219,7 +218,6 @@ class UnitTestAndCompilePlugin : Plugin<Project> {
     private
     fun Test.configureJvmForTest() {
         val jvmForTest = project.buildJvms.testJvm.get()
-        println("-> USING ${jvmForTest.vendorAndMajorVersion} FOR TESTING")
 
         jvmArgumentProviders.add(createCiEnvironmentProvider(this))
         executable = jvmForTest.javaExecutable.absolutePath
